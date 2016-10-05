@@ -30,4 +30,6 @@ print("\nTIEMPO EN SEGUNDOS A DÍAS, HORAS, MINUTOS Y SEGUNDOS\n"
       + "---------------------------------------------------- \n\n"
       + "Introduzca un número entero y positivo de segundos: ", end="")
 
-print("\n" + aDiasHorasMinsSegs(int(input())))
+print("\n" + aDiasHorasMinsSegs(
+    int(input())
+))
