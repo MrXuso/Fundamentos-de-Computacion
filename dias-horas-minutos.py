@@ -19,11 +19,15 @@ def aDiasHorasMinsSegs(tiempo):
     # Calculamos los segundos
     segundos = tiempo % 60
 
-    return str(tiempo) + " segundos son " + str(dias) + " días, " + str(horas) + " horas, " + str(minutos) + " minutos y " + str(segundos) + " segundos."
+    return str(tiempo) + " segundos son " \
+           + str(dias) + " días, " \
+           + str(horas) + " horas, " \
+           + str(minutos) + " minutos y " \
+           + str(segundos) + " segundos."
 
 # Pedimos al usuario que introduzca un número de segundos y mostramos el resultado
 print("SEGUNDOS A DÍAS, HORAS, MINUTOS Y SEGUNDOS\n"
       + "------------------------------------------ \n\n"
-      + "Introduzca un número de segundos: ", end="")
+      + "Introduzca un número entero y positivo de segundos: ", end="")
 
-print(aDiasHorasMinsSegs(int(input())))
+print("\n" + aDiasHorasMinsSegs(int(input())))
