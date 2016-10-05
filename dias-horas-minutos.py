@@ -1,5 +1,5 @@
 """************  SEGUNDOS A DÍAS, HORAS, MINUTOS Y SEGUNDOS  *************
----             Francisco Jesús Jiménez Hidalgo, M48-OCT-2016           """
+---             Francisco Jesús Jiménez Hidalgo, M4-OCT-2016           """
 
 
 def aDiasHorasMinsSegs(tiempo):
