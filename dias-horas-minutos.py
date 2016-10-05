@@ -26,8 +26,8 @@ def aDiasHorasMinsSegs(tiempo):
            + str(segundos) + " segundos."
 
 # Pedimos al usuario que introduzca un número de segundos y mostramos el resultado
-print("SEGUNDOS A DÍAS, HORAS, MINUTOS Y SEGUNDOS\n"
-      + "------------------------------------------ \n\n"
+print("\nTIEMPO EN SEGUNDOS A DÍAS, HORAS, MINUTOS Y SEGUNDOS\n"
+      + "---------------------------------------------------- \n\n"
       + "Introduzca un número entero y positivo de segundos: ", end="")
 
 print("\n" + aDiasHorasMinsSegs(int(input())))
