@@ -2,7 +2,7 @@
 ---             Francisco Jesús Jiménez Hidalgo, M4-OCT-2016           """
 
 
-def aDiasHorasMinsSegs(tiempo):
+def enDiasHorasMinsSegs(tiempo):
     """int -> str
     OBJ: Días, horas, minutos y segundos en un tiempo en segundos dado
     PRE: tiempo >= 0"""
@@ -30,6 +30,6 @@ print("\nTIEMPO EN SEGUNDOS A DÍAS, HORAS, MINUTOS Y SEGUNDOS\n"
       + "---------------------------------------------------- \n\n"
       + "Introduzca un número entero y positivo de segundos: ", end="")
 
-print("\n" + aDiasHorasMinsSegs(
+print("\n" + enDiasHorasMinsSegs(
     int(input())
 ))
