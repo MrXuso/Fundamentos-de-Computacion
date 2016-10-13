@@ -64,9 +64,9 @@ print(tiempoTrabajado('6:15','19:30'))
 """
 
 print('\nHORAS TRABAJADAS\n----------------\n')
-print('Introduce la hora de entrada (HH:MM): ', end='')
+print('Introduzca la hora de entrada (HH:MM): ', end='')
 horaEntrada = input()
-print('Introduce la hora de salida (HH:MM): ', end='')
+print('Introduzca la hora de salida (HH:MM): ', end='')
 horaSalida = input()
 
 print('Ha trabajado', tiempoTrabajado(horaEntrada, horaSalida)[0])
