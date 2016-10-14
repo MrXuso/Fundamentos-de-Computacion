@@ -3,10 +3,10 @@
 
 
 def enMinutos(hora):
-    """str -> int
-    OBJ: 'HH:MM' a minutos
-    PRE: formato 'horas:minutos',
-        estando codificadas las horas en 24h"""
+    """str -> int                               *
+    *   OBJ: 'HH:MM' a minutos                  *
+    *   PRE: formato 'horas:minutos',           *
+    *   estando codificadas las horas en 24h  """
 
     hora = hora.split(':')
 
@@ -14,9 +14,9 @@ def enMinutos(hora):
 
 
 def enHorasMinutos(minutos):
-    """int -> str
-    OBJ: minutos a 'horas:minutos'
-    PRE: minutos >= 0"""
+    """int -> str                           *
+    *   OBJ: minutos a 'horas:minutos'      *
+    *   PRE: minutos >= 0                 """
 
     horas = str(minutos//60)
 
@@ -34,10 +34,11 @@ def enHorasMinutos(minutos):
 
 
 def tiempoTrabajado(horaEntrada, horaSalida):
-    """str, str -> int, boolean
-        OBJ: Dada la hora de entrada y de salida del trabajo, devuelve cuánto ha trabajado
-            y una alerta si son más de 8 horas
-        PRE: las horas vienen codificadas como 'horas:minutos' en formato 24h"""
+    """str, str -> int, boolean                                                *
+    *   OBJ: Dada la hora de entrada y de salida del trabajo,                  *
+    *       devuelve cuánto ha trabajado                                       *
+    *       y una alerta si son más de 8 horas                                 *
+    *   PRE: las horas vienen codificadas como 'horas:minutos' en formato 24h"""
 
     entrada = enMinutos(horaEntrada)
     salida = enMinutos(horaSalida)
