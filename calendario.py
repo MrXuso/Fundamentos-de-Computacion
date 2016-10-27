@@ -83,5 +83,8 @@ except ValueError:
 
 if 1 < mes > 12:
     print('El mes debe de ser un entero entre 1 y 12')
-if anio < 1582:
-    print('El año debe ser un entero mayor que 1582')
+else:
+    if anio < 1582:
+        print('El año debe ser un entero mayor que 1582')
+    else:
+        cuatroPrimerasSemanas(mes, anio)
