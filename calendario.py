@@ -51,10 +51,10 @@ def cuatroPrimerasSemanas(mes, anio):
     # Nombre del mes y año
     print('\n\t\t\t' + nombreMes(mes), anio)
     #Días de la semana
-    print('\t LU\t MA\t MI\t JU\t VI\t SA\t DO')
+    print('     LU  MA  MI  JU  VI  SA  DO')
 
     # Primera semana
-    print('\t   ' * (diaInicial), end='')
+    print('    ' * (diaInicial), end='   ')
     for dia in range(1, (8 - diaInicial)):
         print('%4d' % dia, end='')
 
