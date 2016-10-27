@@ -34,8 +34,6 @@ def nombreMes(mes):
         mes = 'noviembre'
     elif mes == 12:
         mes = 'diciembre'
-    else:
-        mes = 'No has introducido el número de un mes'
 
     return mes
 
