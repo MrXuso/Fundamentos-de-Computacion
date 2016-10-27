@@ -3,7 +3,7 @@
  *            FRANCISCO JESÚS JIMÉNEZ HIDALGO             *
 '''******************************************************"""
 
-print('\n\t\t\t\t Tabla de multiplicar\n\t\t\t\t  ================== \n\n')
+print('\n\t\t\t\t  Tabla de multiplicar\n\t\t\t\t   ================== \n\n')
 
 '''Mostramos los numeros por los que multiplicamos'''
 print(' '*7, end='')
