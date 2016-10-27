@@ -57,7 +57,7 @@ def cuatroPrimerasSemanas(mes, anio):
     print('    ' * (diaInicial), end='   ')
 
     # Semana 1-4
-    for dia in range(1, 24):
+    for dia in range(1, 28-diaInicial):
         # Si es domingo, retorno de carro
         if (dia + diaInicial - 1) % 7 == 0:
             print('\n   ', end='')
