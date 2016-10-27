@@ -49,23 +49,19 @@ def cuatroPrimerasSemanas(mes, anio):
     diasEnElMes = monthrange(anio,mes)[1]
 
     # Nombre del mes y año
-    print('\n\t\t\t' + nombreMes(mes), anio)
+    print('\n\t\t' + nombreMes(mes), anio)
     #Días de la semana
     print('     LU  MA  MI  JU  VI  SA  DO')
 
     # Primera semana
     print('    ' * (diaInicial), end='   ')
-    for dia in range(1, (8 - diaInicial)):
-        print('%4d' % dia, end='')
 
-    # Semanas 2-4
-    for semana in range(1, 4):
-        for dia in range(7*semana-diaInicial+1, 7*(semana+1)-diaInicial+1):
-            # Si es domingo, retorno de carro
-            if (dia + diaInicial - 1) % 7 == 0:
-                print('\n   ', end='')
-            # Imprimimos en pantalla el número
-            print('%4d' % dia, end='')
+    for dia in range(1, 24):
+        # Si es domingo, retorno de carro
+        if (dia + diaInicial - 1) % 7 == 0:
+            print('\n   ', end='')
+        # Imprimimos en pantalla el número
+        print('%4d' % dia, end='')
 
     print('\n')
 
