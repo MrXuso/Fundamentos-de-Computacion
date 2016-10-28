@@ -11,7 +11,7 @@ def diaDeLaSemana (dia, mes, anio):
     +++int, int, int -> int                             +++
     +++OBJ: Día de la semana que es un día de una fecha +++
     +++     concreta (Lunes = 0, Domingo = 6)           +++
-    +++PRE: dia, mes y anio fecha correcta              +++
+    +++PRE: dia, mes y anio fecha correcta  anio > 0    +++
     +++-------------------------------------------------"""
     diaInicial = monthrange(anio, mes)[0]
 
@@ -69,7 +69,7 @@ def formatoFecha(dia, mes, anio):
     print(dia, '/', mes, '/', anio, end='', sep='')
 
 
-print('*** CALENDARIO JULIANO ***\n')
+print('\n*** CALENDARIO JULIANO ***\n')
 
 '''Pedimos al usuario los datos y comprobamos que son enteros'''
 try:
@@ -94,18 +94,18 @@ print('')
 
 '''Si el usuario ha introducido una fecha incorrecta, le avisamos
    , en caso contrario, mostramos el resultado'''
-if dia < 1 or dia > monthrange(anio, mes)[1]:
+if mes < 1 or mes > 12:
+    print('El calendario gregoriano no tiene el mes %d de %d' % (mes, anio))
+elif dia < 1 or dia > monthrange(anio, mes)[1]:
     print('El mes %d de %d no tiene día %d' %(mes, anio, dia))
 elif dia == 29 and not((anio % 4 == 0 and anio % 100 != 100) or anio % 400 == 0):
     print('El mes %d de %d no tiene día %d' % (mes, anio, dia))
-elif mes < 1 or mes > 12:
-    print('El calendario gregoriano no tiene el mes %d de %d' % (mes, anio))
 else:
     print('El ', end='')
     formatoFecha(dia, mes, anio)
     print(' es el ', calendarioJuliano(dia, mes, anio)
           , ' del calendario juliano y es el ', diaDeLaSemana(dia, mes, anio)
-          , ' de la semana', sep='')
+          , ' de la semana\n', sep='')
 
 
 '''
