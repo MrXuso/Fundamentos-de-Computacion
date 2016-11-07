@@ -5,7 +5,6 @@
 ---************************************************"""
 from calendar import monthrange
 
-
 def diaDeLaSemana (dia, mes, anio):
     """-------------------------------------------------+++
     +++int, int, int -> int                             +++
