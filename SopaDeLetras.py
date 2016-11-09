@@ -8,7 +8,7 @@
 # filas = int(input('Introduzca el número de filas: '))
 # columnas = int(input('Introduzca el número de columnas: '))
 vectorDirecciones = [['E', 0, 1], ['O', 0, -1], ['S', 1, 0], ['N', -1, 0],
-                     ['SE', 1, 1], ['SO', 1, -1], ['NE', -1, 1], ['NO', -1, -1]]
+                     ['SE', 1, 1], ['NO', -1, -1], ['SO', 1, -1], ['NE', -1, 1]]
 
 
 def buscarPalabra(tablero, palabra, filas, columnas, vectorDirecciones):
