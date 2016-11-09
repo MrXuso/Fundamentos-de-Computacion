@@ -25,7 +25,6 @@ def buscarPalabra(tablero, palabra):
     coincidencias = 0
 
     for i in range(filas):
-        aux.clear()
         for j in range(columnas):
             aux += tablero[i][j]
         if palabra in ''.join(aux):
