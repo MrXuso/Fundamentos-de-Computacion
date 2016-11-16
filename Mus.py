@@ -159,8 +159,11 @@ def juegoMus():
             for i in range(0,4):
                 for jugador in jugadores:
                     descarte.append(jugador[i])
+                    '''En caso de que no queden cartas, barajamos el descarte y lo repartimos'''
+                    if len(baraja) == 0:
+                        baraja = shuffle(descarte)
+                        descarte = []
                     jugador[i], baraja = repartirCarta(baraja)
-            # TODO: Baraja sin cartas
 
         '''Descartes cuando no todos descartan todas las cartas'''
         # TODO: Descartes normales
