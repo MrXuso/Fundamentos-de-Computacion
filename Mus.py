@@ -124,7 +124,7 @@ def juegoMus():
         print(jugador[4] + ', pulsa intro cuando estés listo para ver tus cartas:')
         input()
         muestraCartas(jugador)
-        input('\nPulsa intro cuando hayas terminado')
+        input('\nPiensa si vas a querer mus y pulsa intro cuando hayas terminado')
         print('\n' * 50)
 
     '''--¿ALGUIEN QUIERE MUS?--'''
@@ -160,6 +160,11 @@ def juegoMus():
                 for jugador in jugadores:
                     descarte.append(jugador[i])
                     jugador[i], baraja = repartirCarta(baraja)
+            # TODO: Baraja sin cartas
+
+        '''Descartes cuando no todos descartan todas las cartas'''
+        # TODO: Descartes normales
+            # TODO: Barajas sin cartas
 
         '''Eliminamos los descartes de la tupla'''
         for jugador in jugadores:
@@ -171,7 +176,24 @@ def juegoMus():
             print(jugador[4] + ', pulsa intro cuando estés listo para ver tus cartas:')
             input()
             muestraCartas(jugador)
-            input('\nPulsa intro cuando hayas terminado')
+            input('\nPiensa si vuelves a querer mus y pulsa intro cuando hayas terminado')
             print('\n' * 50)
+
+    '''--JUGAMOS A GRANDES--'''
+    # TODO: Grandes
+
+    '''--JUGAMOS A CHICAS--'''
+    # TODO: Chicas
+
+    '''--JUGAMOS A PARES--'''
+    # TODO: Quién tiene pares?
+        # TODO: Pares
+
+    '''--JUGAMOS A JUEGO O PUNTO--'''
+    # TODO: Quién tiene juego?
+        # TODO: Si alguien tiene juego, juego
+
+        # TODO: Si Nadie tiene juego, punto
+
 
 juegoMus()
