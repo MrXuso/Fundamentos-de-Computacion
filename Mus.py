@@ -174,5 +174,4 @@ def juegoMus():
             input('\nPulsa intro cuando hayas terminado')
             print('\n' * 50)
 
-        i = 0
 juegoMus()
