@@ -84,10 +84,17 @@ def repartirCarta(baraja):
 
 
 def muestraCartas(jugador):
+    """tuple
+    ---OBJ: Muestra las cartas del jugador"""
     print('\t\tTus cartas son: ', end='')
     for i in range(0, 4):
         print(nombreSimplificadoCarta(jugador[i]), '', end='')
     print('')
+
+def llevaPares(jugador):
+    """tuple -> boolean
+    ---OBJ: lleva alguna pareja el jugador"""
+
 
 def juegoMus():
     jugador1 = []
@@ -96,6 +103,10 @@ def juegoMus():
     jugador4 = []
     jugadores = [jugador1, jugador2, jugador3, jugador4]
     descarte = []
+    puntos = [0, 0]
+    puntosGrande = [1,1,100,4,5,6,7,10,10,100]
+    puntosChica = [1,1,100,94,95,96,87,98,99,100]
+    puntosJuego = [1,1,3,4,5,6,7,10,10,10]
 
     print('¡Juguemos al mus!\n')
 
@@ -124,7 +135,7 @@ def juegoMus():
         print(jugador[4] + ', pulsa intro cuando estés listo para ver tus cartas:')
         input()
         muestraCartas(jugador)
-        input('\nPiensa si vas a querer mus y pulsa intro cuando hayas terminado')
+        input('\nApunta tus cartas y pulsa intro cuando hayas terminado')
         print('\n' * 50)
 
     '''--¿ALGUIEN QUIERE MUS?--'''
@@ -139,6 +150,8 @@ def juegoMus():
                 print(jugador[4], 'ha cortado el mus')
                 break
 
+        if not mus:
+            break
         print('\nTurno de descartes, los demás jugadores no deben mirar, empieza ' + jugadores[0][4] + '\n')
         for jugador in jugadores:
             print('Es tu turno, ' + jugador[4] + '. Pulsa intro para empezar')
@@ -166,8 +179,13 @@ def juegoMus():
                     jugador[i], baraja = repartirCarta(baraja)
 
         '''Descartes cuando no todos descartan todas las cartas'''
-        # TODO: Descartes normales
-            # TODO: Barajas sin cartas
+        for jugador in jugadores:
+            for i in range(0, len(jugador[5]), 2):
+                if len(baraja) == 0:
+                    baraja = shuffle(descarte)
+                    descarte = []
+                descarte.append(jugador[int(jugador[5][i]) - 1])
+                jugador[int(jugador[5][i]) - 1], baraja = repartirCarta(baraja)
 
         '''Eliminamos los descartes de la tupla'''
         for jugador in jugadores:
@@ -179,18 +197,53 @@ def juegoMus():
             print(jugador[4] + ', pulsa intro cuando estés listo para ver tus cartas:')
             input()
             muestraCartas(jugador)
-            input('\nPiensa si vuelves a querer mus y pulsa intro cuando hayas terminado')
+            input('\nApunta tus cartas y pulsa intro cuando hayas terminado')
             print('\n' * 50)
 
-    '''--JUGAMOS A GRANDES--'''
-    # TODO: Grandes
+    '''--JUGAMOS A GRANDES Y A CHICAS--'''
+    puntosEnvite = [0,0]
+    for j in range(0,2):
+        if j == 0:
+            print('\n\n¡Turno de jugar a Grandes!\n')
+        elif j ==1:
+            print('\n\n¡Turno de jugar a Chicas!\n')
+        puntosEnvite[j] = False
+        for i in range(0, 4):
+            jugador = jugadores[i]
+            accion = input('\nTurno de ' + jugador[4] + '. ¿[P]asas o [E]nvidas?: ')
+            if accion == 'E' or accion == 'e':
+                accion = int(input('¿Cuántas envidas?: '))
+                puntosEnvite[j] = accion
 
-    '''--JUGAMOS A CHICAS--'''
-    # TODO: Chicas
+                accion = input(
+                    jugadores[(i+1) % 4][4] + ', ' + jugadores[(i+3) % 4][4] + ', ¿[P]asáis, lo [V]éis o [S]ubís?: ')
+                if accion == 'P' or accion == 'p':
+                    puntosEnvite[j] = 1
+                    puntos[i % 2] += 1
+                elif accion == 'S' or accion == 's':
+                    cantidad = int(input('¿Cuántas subís?: '))
+                    puntosEnvite[j] += cantidad
+
+                break
+
+        if puntosEnvite[j] and puntosEnvite[j] != 1:
+            accion = 'S'
+            while accion == 'S' or accion == 's':
+                i = (i+1)%4
+                accion = input(
+                    jugadores[(i + 1) % 4][4] + ', ' + jugadores[(i + 3) % 4][4] + ', ¿[P]asáis, lo [V]éis o [S]ubís?: ')
+                if accion == 'P' or accion == 'p':
+                    puntos[i % 2] += puntosEnvite[j]
+                    break
+                elif accion == 'S' or accion == 's':
+                    cantidad = int(input('¿Cuántas subís?: '))
+                    puntosEnvite[j] += cantidad
+                elif accion == 'V' or accion == 'v':
+                    break
 
     '''--JUGAMOS A PARES--'''
-    # TODO: Quién tiene pares?
-        # TODO: Pares
+    for jugador in jugadores:
+
 
     '''--JUGAMOS A JUEGO O PUNTO--'''
     # TODO: Quién tiene juego?
