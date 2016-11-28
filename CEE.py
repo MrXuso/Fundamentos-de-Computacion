@@ -24,7 +24,8 @@ def nombrePaises(paises):
 
 def nombrePais(paises, n):
     """tuple (pais1, ..., paisN), int -> str
-    ---OBJ: Nombre pais posicion n"""
+    ---OBJ: Nombre pais posicion n
+    ---PRE: n <= numero de paises"""
     return paises[n - 1]
 
 
