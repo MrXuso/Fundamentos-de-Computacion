@@ -97,8 +97,6 @@ if mes < 1 or mes > 12:
     print('El calendario gregoriano no tiene el mes %d de %d' % (mes, anio))
 elif dia < 1 or dia > monthrange(anio, mes)[1]:
     print('El mes %d de %d no tiene día %d' %(mes, anio, dia))
-elif dia == 29 and not((anio % 4 == 0 and anio % 100 != 100) or anio % 400 == 0):
-    print('El mes %d de %d no tiene día %d' % (mes, anio, dia))
 else:
     print('El ', end='')
     formatoFecha(dia, mes, anio)
