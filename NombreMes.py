@@ -32,5 +32,3 @@ def nombreMes(numeroMes):
 
     return mes
 
-print(nombreMes(8))
-
