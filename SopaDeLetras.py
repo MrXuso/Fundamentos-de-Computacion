@@ -4,67 +4,64 @@
 --- Sopa de letras                                 ---
 ---************************************************"""
 
-palabra = input('Introduzca la palabra a buscar: ')
-filas = int(input('Introduzca el número de filas: '))
-columnas = int(input('Introduzca el número de columnas: '))
-
-tablero = [[0 for i in range(filas)] for j in range(columnas)]
-
-"""Pedimos cada elemento al usuario"""
-for i in range(columnas):
-    for j in range(filas):
-        print('Introduzca el elemento %d, %d: ' %(i+1, j+1), end='')
-        tablero[i][j] = input()
+# palabra = input('Introduzca la palabra a buscar: ')
+# filas = int(input('Introduzca el número de filas: '))
+# columnas = int(input('Introduzca el número de columnas: '))
+vectorDirecciones = [['E', 0, 1], ['O', 0, -1], ['S', 1, 0], ['N', -1, 0],
+                     ['SE', 1, 1], ['NO', -1, -1], ['SO', 1, -1], ['NE', -1, 1]]
 
 
-def buscarPalabra(tablero, palabra):
+def buscarPalabra(tablero, palabra, filas, columnas, vectorDirecciones):
     """list[][], str -> str
     +++OBJ: busca la palabra en la sopa de letras
     +++PRE: tablero lista de string"""
-    aux = []
-    coincidencias = 0
+    coincidencias = [0 for i in range(8)]
 
-    for i in range(filas):
-        for j in range(columnas):
-            aux += tablero[i][j]
-        if palabra in ''.join(aux):
-            coincidencias += 1
+    for i in range(0, 8, 2):
+        vectorDireccion = vectorDirecciones[i]
 
-    print('Se han encontrado %d %s en sentido E' %(coincidencias,palabra))
+        """Veces que tenemos que buscar una palabra en una matriz filas x columnas"""
+        veces = max([abs(vectorDireccion[1]) * filas, abs(vectorDireccion[2]) * columnas])
 
-    coincidencias = 0
-    for i in range(filas-1, -1, -1):
-        aux.clear()
-        for j in range(columnas-1, -1, -1):
-            aux += tablero[j][i]
-        if palabra in ''.join(aux):
-            coincidencias += 1
+        x, y, j = 0, 0, 1
+        while j <= veces:
+            aux = []
+            while x >= 0 and y >= 0 and x < filas and y < columnas:
+                aux += tablero[x][y]
+                x += vectorDireccion[1]
+                y += vectorDireccion[2]
+            if palabra in ''.join(aux):
+                coincidencias[i] += 1
 
-    print('Se han encontrado %d %s en sentido S' %(coincidencias,palabra))
+            aux.reverse()
+            if palabra in ''.join(aux):
+                coincidencias[i + 1] += 1
 
-    coincidencias = 0
-    for i in range(columnas):
-        aux.clear()
-        for j in range(filas):
-            aux += tablero[j][i]
-        if palabra in ''.join(aux):
-            coincidencias += 1
+            x = (x + vectorDireccion[2]) % filas
+            y = (y + vectorDireccion[1]) % columnas
+            j += 1
 
-    print('Se han encontrado %d %s en sentido N' %(coincidencias,palabra))
-
-    coincidencias = 0
-    for i in range(columnas-1, -1, -1):
-        aux.clear()
-        for j in range(filas-1, -1, -1):
-            aux += tablero[i][j]
-        if palabra in ''.join(aux):
-            coincidencias += 1
-
-    print('Se han encontrado %d %s en sentido O' %(coincidencias,palabra))
-buscarPalabra(tablero, palabra)
+    return coincidencias
 
 # PROBADOR
-for i in range(columnas):
-    for j in range(filas):
-        print('%3s' % tablero[i][j], end='')
-    print('')
+sopa = [['h', 'o', 'l', 'a', 'x', 'x'],
+        ['o', 'o', 'x', 'a', 'a', 'x'],
+        ['l', 'x', 'l', 'x', 'l', 'x'],
+        ['a', 'o', 'x', 'a', 'o', 'x'],
+        ['h', 'a', 'l', 'o', 'h', 'x'],
+        ['x', 'x', 'x', 'x', 'x', 'x']]
+
+columnas = 6
+filas = 6
+
+tablero = [[0 for i in range(filas)] for j in range(columnas)]
+
+print(buscarPalabra(sopa, 'hola', 6, 6, vectorDirecciones))
+
+# """Pedimos cada elemento al usuario"""
+# for i in range(columnas):
+#     for j in range(filas):
+#         print('Introduzca el elemento %d, %d: ' % (i + 1, j + 1), end='')
+#         tablero[i][j] = input()
+#
+# print(buscarPalabra(tablero, palabra))
