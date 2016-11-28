@@ -46,6 +46,3 @@ def nombreNumero(n):
         numero += 'nueve'
 
     return numero
-
-print('Introduzca un número: ', end='')
-print(nombreNumero(int(input())))
