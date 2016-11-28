@@ -33,12 +33,7 @@ def estaPais(paises, pais):
     """tuple (pais1, ..., paisN), str -> boolean
     ---OBJ: Está el pais entre los países dados?"""
 
-    esta = False
-
-    if pais in paises:
-        esta = True
-
-    return esta
+    return pais in paises
 
 
 def paisesConMasHabitantes(paises, poblacion):
